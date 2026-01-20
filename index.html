@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth Vibes - Presentation</title>
+    <style>
+        /* Theme Variables */
+        :root {
+            --font-family-display: 'Segoe UI', Arial, sans-serif;
+            --font-weight-display: 700;
+            --font-family-content: 'Segoe UI', Arial, sans-serif;
+            --font-weight-content: 400;
+            --font-size-content: 16px;
+            --line-height-content: 1.5;
+        }
+
+        /* DARK THEME - Modern Youth Aesthetic */
+        body.theme-dark {
+            --color-bg-base: #0a0e27;
+            --color-bg-elevated: #05060f;
+            --color-bg-surface: #1a1f3a;
+            --color-bg-accent: #2d1b4e;
+            --color-text-primary: #f0f4ff;
+            --color-text-secondary: #b8c5ff;
+            --color-text-muted: #7a8ec4;
+            --color-accent-primary: #ff006e;
+            --color-accent-secondary: #00d9ff;
+            --color-accent-tertiary: #ffbe0b;
+            --color-accent-quaternary: #8338ec;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-content);
+            font-weight: var(--font-weight-content);
+            font-size: var(--font-size-content);
+            line-height: var(--line-height-content);
+            overflow-x: hidden;
+            background-color: var(--color-bg-base);
+            color: var(--color-text-primary);
+        }
+
+        /* Slide Container */
+        .slide {
+            width: 960px;
+            height: 540px;
+            margin: 0 auto 20px;
+            display: flex;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--color-bg-base) 0%, var(--color-bg-elevated) 100%);
+            border-radius: 0;
+        }
+
+        /* Layout Utilities */
+        .row { flex-direction: row; }
+        .col { flex-direction: column; }
+        .center {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .space-between { justify-content: space-between; }
+        .items-center { align-items: center; }
+        .items-start { align-items: flex-start; }
+        .items-end { align-items: flex-end; }
+        .fill-width { flex: 1; }
+        .fill-height { flex: 1; display: flex; flex-direction: column; }
+
+        /* Spacing */
+        .gap-sm { gap: 0.5rem; }
+        .gap-md { gap: 1rem; }
+        .gap-lg { gap: 1.5rem; }
+        .gap-xl { gap: 2rem; }
+        .gap-2xl { gap: 3rem; }
+
+        .p-4 { padding: 1rem; }
+        .p-6 { padding: 1.5rem; }
+        .p-8 { padding: 2rem; }
+        .p-12 { padding: 3rem; }
+        .p-16 { padding: 4rem; }
+
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-12 { margin-bottom: 3rem; }
+
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .mt-8 { margin-top: 2rem; }
+        .mt-12 { margin-top: 3rem; }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-family-display);
+            font-weight: var(--font-weight-display);
+            line-height: 1.2;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.875rem; }
+        h4 { font-size: 1.5rem; }
+        h5 { font-size: 1.25rem; }
+        h6 { font-size: 1rem; }
+
+        .text-6xl { font-size: 3.75rem; }
+        .text-5xl { font-size: 3rem; }
+        .text-4xl { font-size: 2.25rem; }
+        .text-3xl { font-size: 1.875rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-base { font-size: 1rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-xs { font-size: 0.75rem; }
+
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .font-medium { font-weight: 500; }
+        .font-normal { font-weight: 400; }
+
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .text-left { text-align: left; }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #ff006e 0%, #00d9ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-text-warm {
+            background: linear-gradient(135deg, #ffbe0b 0%, #ff006e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Accent Colors */
+        .accent-pink { color: #ff006e; }
+        .accent-cyan { color: #00d9ff; }
+        .accent-yellow { color: #ffbe0b; }
+        .accent-purple { color: #8338ec; }
+
+        /* Lists */
+        ul, ol {
+            margin-right: 2rem;
+            line-height: 1.8;
+        }
+
+        ul li { list-style: disc; }
+        ol li { list-style: decimal; }
+
+        li { margin-bottom: 1rem; color: var(--color-text-secondary); }
+        li:last-child { margin-bottom: 0; }
+
+        li strong { color: var(--color-text-primary); }
+
+        /* Card Styles */
+        .card-rect {
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(255, 0, 110, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 0, 110, 0.2);
+        }
+
+        .card-rect-cyan {
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.15);
+        }
+
+        .card-rect-yellow {
+            border: 1px solid rgba(255, 190, 11, 0.2);
+            box-shadow: 0 8px 32px rgba(255, 190, 11, 0.15);
+        }
+
+        .card-rect-purple {
+            border: 1px solid rgba(131, 56, 236, 0.2);
+            box-shadow: 0 8px 32px rgba(131, 56, 236, 0.15);
+        }
+
+        /* Decoration Elements */
+        .blob {
+            position: absolute;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            opacity: 0.15;
+            filter: blur(40px);
+        }
+
+        .blob-pink {
+            width: 300px;
+            height: 300px;
+            background: #ff006e;
+        }
+
+        .blob-cyan {
+            width: 250px;
+            height: 250px;
+            background: #00d9ff;
+        }
+
+        .blob-purple {
+            width: 280px;
+            height: 280px;
+            background: #8338ec;
+        }
+
+        /* Opacity */
+        .opacity-90 { opacity: 0.9; }
+        .opacity-80 { opacity: 0.8; }
+        .opacity-70 { opacity: 0.7; }
+        .opacity-60 { opacity: 0.6; }
+
+        /* Icon-like elements */
+        .emoji-large {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff006e 0%, #00d9ff 100%);
+            margin: 1.5rem auto;
+            border-radius: 2px;
+        }
+
+        .divider-right {
+            margin: 1.5rem 0 1.5rem auto;
+        }
+    </style>
+</head>
+<body class="theme-dark">
+
+    <!-- Slide 1: Title Slide - Hamaya Wa Watan Workshop -->
+    <section class="slide p-16 col center" style="background: linear-gradient(135deg, #05060f 0%, #1a1f3a 50%, #2d1b4e 100%); position: relative; overflow: hidden;">
+        <div class="blob blob-pink" style="top: -50px; right: -50px;"></div>
+        <div class="blob blob-cyan" style="bottom: -100px; left: -100px;"></div>
+        
+        <div style="position: relative; z-index: 10; text-align: center;">
+            <p style="color: #ffbe0b; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.75rem; letter-spacing: 0.05em;">🛡️ حماة وطن</p>
+            <h1 class="gradient-text-warm mb-4" style="font-size: 4.2rem; letter-spacing: -0.03em;">Aboitg WorkShop</h1>
+            <h2 style="color: #00d9ff; font-size: 1.75rem; font-weight: 600; margin-bottom: 1.5rem;">ورشة تطوير المهارات التقنية</h2>
+            <div class="divider"></div>
+            
+            <div style="margin-top: 1.5rem; background: rgba(0, 217, 255, 0.1); padding: 1rem; border-radius: 12px; border: 1px solid rgba(0, 217, 255, 0.2); display: inline-block;">
+                <p style="color: #b8c5ff; font-size: 1rem; margin: 0;">👥 للمتخصصين وغير المتخصصين</p>
+            </div>
+            
+            <p style="color: #b8c5ff; font-size: 1.125rem; margin-top: 1.5rem;">تدريب شامل • مهارات حقيقية • تطبيقات عملية</p>
+        </div>
+    </section>
+
+    <!-- Slide 2: What is Workshop vs Course -->
+    <section class="slide p-16 col" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);">
+        <h2 class="mb-6" style="color: #f0f4ff; text-align: right;">📌 الفرق بين الورشة والكورس</h2>
+        
+        <div style="display: flex; gap: 1.5rem; text-align: right; height: 100%; align-items: center;">
+            <div class="card-rect" style="flex: 1; background: rgba(255, 0, 110, 0.1); border: 1px solid rgba(255, 0, 110, 0.3);">
+                <p style="color: #ff006e; font-weight: 700; margin-bottom: 1rem; font-size: 1.2rem;">🎯 الورشة</p>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.6rem; color: #b8c5ff; font-size: 0.9rem;">✓ شرح بدائي للأساسيات</li>
+                    <li style="margin-bottom: 0.6rem; color: #b8c5ff; font-size: 0.9rem;">✓ جانب عملي بسيط</li>
+                    <li style="margin-bottom: 0.6rem; color: #b8c5ff; font-size: 0.9rem;">✓ فهم عام للمجال</li>
+                    <li style="color: #b8c5ff; font-size: 0.9rem;">✓ تطبيق على الحياة اليومية</li>
+                </ul>
+            </div>
+
+            <div class="card-rect card-rect-cyan" style="flex: 1; background: rgba(0, 217, 255, 0.1); border: 1px solid rgba(0, 217, 255, 0.3);">
+                <p style="color: #00d9ff; font-weight: 700; margin-bottom: 1rem; font-size: 1.2rem;">📚 الكورس</p>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.6rem; color: #b8c5ff; font-size: 0.9rem;">✓ شرح تفصيلي متعمق</li>
+                    <li style="margin-bottom: 0.6rem; color: #b8c5ff; font-size: 0.9rem;">✓ تطبيقات عملية متقدمة</li>
+                    <li style="margin-bottom: 0.6rem; color: #b8c5ff; font-size: 0.9rem;">✓ تخصص في المجال</li>
+                    <li style="color: #b8c5ff; font-size: 0.9rem;">✓ احترافية عالية</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Workshop Details & Program Structure -->
+    <section class="slide p-16 col" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);">
+        <h2 class="mb-6" style="color: #f0f4ff; text-align: right;">📋 تفاصيل الورشة</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; text-align: right; flex: 1; align-items: center;">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="card-rect" style="background: rgba(255, 0, 110, 0.1); border: 1px solid rgba(255, 0, 110, 0.3); padding: 1.5rem;">
+                    <p style="color: #ff006e; font-weight: 700; margin-bottom: 0.5rem;">⏱️ المدة</p>
+                    <p style="color: #b8c5ff; font-size: 1.1rem;"><strong>5 أيام</strong> • 4 ساعات يومياً</p>
+                </div>
+
+                <div class="card-rect" style="background: rgba(0, 217, 255, 0.1); border: 1px solid rgba(0, 217, 255, 0.3); padding: 1.5rem;">
+                    <p style="color: #00d9ff; font-weight: 700; margin-bottom: 0.5rem;">💰 التكلفة</p>
+                    <p style="color: #b8c5ff; font-size: 1.1rem;"><strong>200 جنيه</strong> لكل شخص</p>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="card-rect card-rect-yellow" style="background: rgba(255, 190, 11, 0.1); border: 1px solid rgba(255, 190, 11, 0.3); padding: 1.5rem;">
+                    <p style="color: #ffbe0b; font-weight: 700; margin-bottom: 0.5rem;">👥 الجمهور</p>
+                    <p style="color: #b8c5ff; font-size: 0.95rem;">متخصصين وغير متخصصين في التكنولوجيا</p>
+                </div>
+
+                <div class="card-rect card-rect-purple" style="background: rgba(131, 56, 236, 0.1); border: 1px solid rgba(131, 56, 236, 0.3); padding: 1.5rem;">
+                    <p style="color: #8338ec; font-weight: 700; margin-bottom: 0.5rem;">🏆 الشهادة</p>
+                    <p style="color: #b8c5ff; font-size: 0.95rem;">شهادة معتمدة في نهاية البرنامج</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Topic 1 - Computer Science Fundamentals -->
+    <section class="slide p-16 col" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);">
+        <h2 class="mb-6" style="color: #f0f4ff; text-align: right;">💻 1️⃣ علوم الحوسبة الأساسية</h2>
+        
+        <div style="text-align: right; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+            <p style="color: #00d9ff; font-weight: 600; margin-bottom: 1rem; font-size: 1rem;">المواضيع المغطاة:</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="card-rect" style="background: rgba(255, 0, 110, 0.1); border: 1px solid rgba(255, 0, 110, 0.3); padding: 1.25rem;">
+                    <p style="color: #ff006e; font-weight: 700; margin-bottom: 0.5rem;">🖥️ Hardware</p>
+                    <p style="color: #b8c5ff; font-size: 0.85rem;">مكونات الحاسوب الأساسية</p>
+                </div>
+                <div class="card-rect" style="background: rgba(0, 217, 255, 0.1); border: 1px solid rgba(0, 217, 255, 0.3); padding: 1.25rem;">
+                    <p style="color: #00d9ff; font-weight: 700; margin-bottom: 0.5rem;">🌐 Internet</p>
+                    <p style="color: #b8c5ff; font-size: 0.85rem;">شبكات الإنترنت والتوصيل</p>
+                </div>
+                <div class="card-rect" style="background: rgba(255, 190, 11, 0.1); border: 1px solid rgba(255, 190, 11, 0.3); padding: 1.25rem;">
+                    <p style="color: #ffbe0b; font-weight: 700; margin-bottom: 0.5rem;">🔒 Security</p>
+                    <p style="color: #b8c5ff; font-size: 0.85rem;">الأمان الرقمي والحماية</p>
+                </div>
+                <div class="card-rect" style="background: rgba(131, 56, 236, 0.1); border: 1px solid rgba(131, 56, 236, 0.3); padding: 1.25rem;">
+                    <p style="color: #8338ec; font-weight: 700; margin-bottom: 0.5rem;">🎬 Multimedia</p>
+                    <p style="color: #b8c5ff; font-size: 0.85rem;">الوسائط المتعددة والملفات</p>
+                </div>
+            </div>
+            <p style="color: #b8c5ff; font-size: 0.9rem; margin-top: 1rem; text-align: center;">+ البرمجة الأساسية والمبادئ التقنية</p>
+        </div>
+    </section>
+
+    <!-- Slide 5: Topic 2 - UI/UX Design -->
+    <section class="slide p-16 col" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);">
+        <h2 class="mb-6" style="color: #f0f4ff; text-align: right;">🎨 2️⃣ تصميم واجهات المستخدم (UI/UX)</h2>
+        
+        <div style="text-align: right; color: #b8c5ff; line-height: 1.8; font-size: 0.95rem; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+            <p style="margin-bottom: 1rem;"><strong style="color: #00d9ff;">شرح تفصيلي عملي</strong> للتصميم الاحترافي</p>
+            
+            <div class="card-rect card-rect-cyan" style="background: rgba(0, 217, 255, 0.1); border: 1px solid rgba(0, 217, 255, 0.3); padding: 1.5rem;">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.7rem;">✓ مبادئ التصميم الأساسية</li>
+                    <li style="margin-bottom: 0.7rem;">✓ تجربة المستخدم (UX) العملية</li>
+                    <li style="margin-bottom: 0.7rem;">✓ واجهات المستخدم (UI) المتقنة</li>
+                    <li style="margin-bottom: 0.7rem;">✓ أمثلة حقيقية واحترافية من السوق</li>
+                    <li>✓ كيفية عمل المصمم المحترف</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Topic 3 - Graphic Design with Photoshop -->
+    <section class="slide p-16 col" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);">
+        <h2 class="mb-6" style="color: #f0f4ff; text-align: right;">🖼️ 3️⃣ تصميم جرافيكي - Photoshop</h2>
+        
+        <div style="display: flex; gap: 1.5rem; flex-direction: column; text-align: right; flex: 1; justify-content: center;">
+            <div class="card-rect card-rect-yellow" style="background: rgba(255, 190, 11, 0.1); border: 1px solid rgba(255, 190, 11, 0.3);">
+                <p style="color: #ffbe0b; font-weight: 700; margin-bottom: 1rem; font-size: 1.05rem;">التركيز: أساسيات Photoshop</p>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.6rem; color: #b8c5ff; font-size: 0.9rem;">✓ مكونات التصميم الأساسية</li>
+                    <li style="margin-bottom: 0.6rem; color: #b8c5ff; font-size: 0.9rem;">✓ نظرية الألوان واختيار الألوان بطريقة صحيحة</li>
+                    <li style="margin-bottom: 0.6rem; color: #b8c5ff; font-size: 0.9rem;">✓ تصاميم جاذبة وملفتة للانتباه</li>
+                    <li style="color: #b8c5ff; font-size: 0.9rem;">✓ تطبيقات عملية على Photoshop</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Topic 4 - Artificial Intelligence -->
+    <section class="slide p-16 col" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);">
+        <h2 class="mb-6" style="color: #f0f4ff; text-align: right;">🤖 4️⃣ الذكاء الاصطناعي</h2>
+        
+        <div style="text-align: right; color: #b8c5ff; font-size: 0.95rem; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+            <p style="margin-bottom: 1rem;"><strong style="color: #8338ec;">مساعدة الطلاب على فهم واستخدام أدوات AI</strong></p>
+            
+            <div class="card-rect card-rect-purple" style="background: rgba(131, 56, 236, 0.1); border: 1px solid rgba(131, 56, 236, 0.3); padding: 1.5rem;">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.7rem;">✓ فهم أدوات الذكاء الاصطناعي المعروفة</li>
+                    <li style="margin-bottom: 0.7rem;">✓ كيفية كتابة Prompts احترافية وفعالة</li>
+                    <li style="margin-bottom: 0.7rem;">✓ الحصول على نتائج هائلة من AI Tools</li>
+                    <li style="margin-bottom: 0.7rem;">✓ تطبيقات عملية تساعد في العمل</li>
+                    <li>✓ التعامل مع التحديات الحقيقية</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Topic 5 - English Language Development -->
+    <section class="slide p-16 col" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);">
+        <h2 class="mb-6" style="color: #f0f4ff; text-align: right;">🌐 5️⃣ تطوير اللغة الإنجليزية</h2>
+        
+        <div style="text-align: right; color: #b8c5ff; font-size: 0.95rem; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+            <p style="margin-bottom: 1rem;"><strong style="color: #ff006e;">تحسين ذاتي مستمر في اللغة الإنجليزية</strong></p>
+            
+            <div class="card-rect" style="background: rgba(255, 0, 110, 0.1); border: 1px solid rgba(255, 0, 110, 0.3); padding: 1.5rem;">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.7rem;">✓ أساسيات البدء في تعلم الإنجليزية</li>
+                    <li style="margin-bottom: 0.7rem;">✓ أدوات وطرق تعليم جديدة ومفيدة</li>
+                    <li style="margin-bottom: 0.7rem;">✓ تطوير المهارات بشكل مستقل</li>
+                    <li style="margin-bottom: 0.7rem;">✓ الاستمرار في التعلم والتحسن</li>
+                    <li>✓ أدوات عملية للاستخدام اليومي</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: Core Benefits & Life Impact -->
+    <section class="slide p-16 col" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);">
+        <h2 class="mb-6" style="color: #f0f4ff; text-align: right;">✨ فوائد الورشة والتأثير</h2>
+        
+        <ul style="list-style: none; padding-right: 0; text-align: right; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+            <li style="margin-bottom: 1rem; color: #f0f4ff; font-size: 0.95rem;">
+                <span style="color: #ff006e; font-weight: 700; font-size: 1.2rem;">✓ </span>
+                <strong>مهارات عملية</strong> تساعد مباشرة في الأعمال المكتبية والمهنية
+            </li>
+            <li style="margin-bottom: 1rem; color: #f0f4ff; font-size: 0.95rem;">
+                <span style="color: #00d9ff; font-weight: 700; font-size: 1.2rem;">✓ </span>
+                فهم <strong>التحول الرقمي</strong> والتطورات التقنية المعاصرة والحديثة
+            </li>
+            <li style="margin-bottom: 1rem; color: #f0f4ff; font-size: 0.95rem;">
+                <span style="color: #ffbe0b; font-weight: 700; font-size: 1.2rem;">✓ </span>
+                التعامل مع <strong>التكنولوجيا بثقة</strong> واحترافية في الحياة اليومية
+            </li>
+            <li style="margin-bottom: 1rem; color: #f0f4ff; font-size: 0.95rem;">
+                <span style="color: #8338ec; font-weight: 700; font-size: 1.2rem;">✓ </span>
+                <strong>فهم وتطبيق حقيقي</strong> لتقنيات نستخدمها كل يوم
+            </li>
+            <li style="color: #f0f4ff; font-size: 0.95rem;">
+                <span style="color: #ff006e; font-weight: 700; font-size: 1.2rem;">🏆 </span>
+                <strong>شهادة معتمدة</strong> تعزز الملف الشخصي الاحترافي
+            </li>
+        </ul>
+    </section>
+
+    <!-- Slide 10: Target Audience & Who Should Join -->
+    <section class="slide p-16 col" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);">
+        <h2 class="mb-6" style="color: #f0f4ff; text-align: right;">👥 من يجب أن ينضم للورشة؟</h2>
+        
+        <div style="display: flex; gap: 1.5rem; text-align: right; flex: 1; align-items: center;">
+            <div class="card-rect" style="flex: 1; background: rgba(255, 0, 110, 0.1); border: 1px solid rgba(255, 0, 110, 0.3);">
+                <p style="color: #ff006e; font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">👨‍💼 المتخصصون</p>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem; color: #b8c5ff; font-size: 0.9rem;">✓ العاملون في التكنولوجيا</li>
+                    <li style="margin-bottom: 0.5rem; color: #b8c5ff; font-size: 0.9rem;">✓ المهتمون بالمجال التقني</li>
+                    <li style="color: #b8c5ff; font-size: 0.9rem;">✓ المحترفون الراغبون في التطوير</li>
+                </ul>
+            </div>
+
+            <div class="card-rect card-rect-cyan" style="flex: 1; background: rgba(0, 217, 255, 0.1); border: 1px solid rgba(0, 217, 255, 0.3);">
+                <p style="color: #00d9ff; font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">🎓 المبتدئون</p>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem; color: #b8c5ff; font-size: 0.9rem;">✓ غير المتخصصين في التكنولوجيا</li>
+                    <li style="margin-bottom: 0.5rem; color: #b8c5ff; font-size: 0.9rem;">✓ الراغبين في فهم التقنية</li>
+                    <li style="color: #b8c5ff; font-size: 0.9rem;">✓ الفضوليين حول المجال</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 11: Call to Action - Join Now -->
+    <section class="slide p-16 col center" style="background: linear-gradient(135deg, #2d1b4e 0%, #05060f 100%); position: relative; overflow: hidden;">
+        <div class="blob blob-purple" style="top: 20px; left: -80px;"></div>
+        <div class="blob blob-cyan" style="bottom: -80px; right: 20px;"></div>
+        
+        <div style="position: relative; z-index: 10; text-align: center;">
+            <h2 class="gradient-text mb-6" style="font-size: 2.8rem; text-align: center;">انضم الآن للورشة 🚀</h2>
+            <p style="color: #b8c5ff; font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                برنامج تدريبي <strong>مكثّف ومحترف</strong><br>
+                لتطوير مهارات تقنية <strong>حقيقية وعملية</strong>
+            </p>
+            <div class="divider"></div>
+            <div style="margin-top: 1.5rem; background: rgba(0, 217, 255, 0.1); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(0, 217, 255, 0.3);">
+                <p style="color: #00d9ff; font-size: 1.1rem; font-weight: 700;">📊 الأرقام:</p>
+                <p style="color: #b8c5ff; font-size: 1rem; margin-top: 0.75rem;">💰 200 جنيه • 📅 5 أيام • 🏆 شهادة معتمدة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 12: Final Message & Thank You -->
+    <section class="slide p-16 col center" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #05060f 100%); position: relative; overflow: hidden;">
+        <div class="blob blob-pink" style="top: -60px; right: -60px;"></div>
+        <div class="blob blob-yellow" style="bottom: -80px; left: -80px;"></div>
+        
+        <div style="position: relative; z-index: 10; text-align: center;">
+            <h1 class="gradient-text-warm mb-6" style="font-size: 3.8rem;">شكراً لكم! 🙏</h1>
+            <p style="color: #00d9ff; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 600;">نتطلع لرؤيتكم في الورشة</p>
+            <div class="divider"></div>
+            
+            <div style="margin-top: 2rem; background: rgba(131, 56, 236, 0.1); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(131, 56, 236, 0.3);">
+                <p style="color: #8338ec; font-weight: 700; margin-bottom: 0.75rem;">للأسئلة والملاحظات:</p>
+                <p style="color: #b8c5ff; font-size: 0.95rem;">نحن هنا دائماً لمساعدتكم • تطوير حقيقي ينتظركم 🌟</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
